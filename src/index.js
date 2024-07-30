@@ -4,7 +4,7 @@ const http = require('http');
 const apiRouter = require('./routes');
 const serverConfig = require('./config/serverConfig');
 const dbConfig = require('./config/dbConfig');
-const redisConfig = require('./config/redisConfig')
+const {redisConfig} = require('./config/redisConfig')
 const  cors = require('cors');
 
 

@@ -23,4 +23,4 @@ const redisConfig = async () => {
     }
 };
 
-module.exports = redisConfig;
+module.exports = {redisConfig,redisClient};
