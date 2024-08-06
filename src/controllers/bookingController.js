@@ -2,7 +2,7 @@ const {BookingService,LocationService} = require('../services');
 const { io } = require('../index');
 
 
-
+//createBooking is for the user
 const createBooking = (io) => async (req, res) => {
   try {
     const { source, destination } = req.body;
@@ -22,6 +22,7 @@ const createBooking = (io) => async (req, res) => {
   }
 };
 
+//confirm booinging is for driver
 const confirmBooking = (io) => async (req, res) => {
   try {
     const { bookingId } = req.body;

@@ -18,7 +18,7 @@ const createBooking = async ({passengerId,source,destination}) =>{
       status: 'pending'
     };
     
-    const booking = bookingRepository.createBooking(bookingData);
+    const booking = BookingRepository.createBooking(bookingData);
     return booking;
 }
 
@@ -40,7 +40,7 @@ const findNearbyDrivers = async (location, radius = 5) => {
 
   
 const assignDriver = async (bookingId, driverId) => {
-    const booking = await bookingRepository.updateBookingStatus(bookingId, driverId, 'confirmed');
+    const booking = await BookingRepository.updateBookingStatus(bookingId, driverId, 'confirmed');
     if (!booking) throw new Error('Booking already confirmed or does not exist');
     return booking;
   };

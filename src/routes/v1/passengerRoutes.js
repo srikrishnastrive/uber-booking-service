@@ -3,7 +3,7 @@ const authMiddleware = require('../../middlewares/authMiddleware');
 const {PassengerController} = require('../../controllers');
 const router = express.Router();
 
-router.post('/bookings',authMiddleware,PassengerController.getPassengerBookings);
+router.get('/bookings',authMiddleware,PassengerController.getPassengerBookings);
 router.post('/feedback',authMiddleware,PassengerController.provideFeedback);
 
 
