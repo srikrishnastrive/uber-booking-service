@@ -23,7 +23,7 @@ const updateLocation = async (driverId, { latitude, longitude }) => {
     // Update driver's location in MongoDB
     await driverRepository.updateDriverLocation(driverId, {
       type: 'Point',
-      coordinates: [lon, lat]
+      coordinates: [lat,lon]
     });
 };
 

@@ -1,4 +1,4 @@
-const {redisClient} = require('../config/redisConfig');
+const {redisClient, redisConfig} = require('../config/redisConfig');
 
 class locationService  {
     async setDriverSocket(driverId,socketId){
@@ -39,6 +39,22 @@ class locationService  {
         } catch(error) {
           console.log("Cannot add to redis", error)
         }
+        
+      }
+
+      async storeNotifiedDrivers(bookingId, driverIds) {
+  
+        for (const driverId of driverIds) {
+          // Add each driverId to the set
+          const addedCount = await redisClient.sAdd(`notifiedDrivers:${bookingId}`, driverId);
+          console.log(`Added driver ${driverId} to the set for booking ${bookingId}, result: ${addedCount}`);
+        }
+      
+      }
+
+      async  getNotifiedDrivers(bookingId) {
+        return  await redisClient.sMembers(`notifiedDrivers:${bookingId}`);
+
         
       }
     
